@@ -36,5 +36,6 @@
             }
         });
 
+    // Create a subview for popup product window
     createRootView();
 }());
