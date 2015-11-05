@@ -3,7 +3,7 @@
 # App requirements 
 
 Product definition:
-
+```javascript
 Model: {
 
   Name
@@ -13,10 +13,12 @@ Model: {
   Weight
   Value (in US Dollars)
 }
+```
 # Reading the FW source code 
 
 TODO: Make inheritence/mixin/composition map Mixin is equivalent to multiple inheritance
 
+```javascript
 FW.Component could contain multiple components which are maintained through FW.ComponentList
 
 FW.Abstractmodel = FW.Object.extend
@@ -28,4 +30,4 @@ FW.ComponentList = FW.AbstractModel.extend
 FW.Model = FW.AbstractModel.extend
 
 FW.List = FW.Object.extend   (with models?)
-
+```
