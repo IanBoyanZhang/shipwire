@@ -10,26 +10,29 @@
     }
 
     function createUtilityView() {
-        var utilityView = new  CustomComponent({
-        });
+        var utilityView = new UtilityComponent({ text: "utility" });
         utilityView.load();
         utilityView.render();
         $('body').append(utilityView._$el);
     }
 
-    var CustomComponent = FW.Component.extend('customComponent', {
+    var UtilityComponent = FW.Component.extend('UtilityComponent', {
         init: function (options) {
-            CustomComponent.parent.init.call(this, options);
+            options.template = '<div class="utilityPanel"><span>' + options.text + '</span><div class="utilityPanelLevel1"></div></div>';
+            UtilityComponent.parent.init.call(this, options);
             this.text = options.text;
             this.listenTo(this, 'load', this._onLoad);
         },
-        // TODO: Validation in template engine
-        templateEngine: function(options) {
-        },
         _onLoad: function() {
-//            this.components().append(this.text, this, "hookLevel");
+            // this.components().append(this.text, new Component({ text: 'SubComponent' }), ".utilityPanelLevel1");
+            this.components().append(this.text + 1, new FW.Component({ template: 'SubComponent1' }), ".utilityPanelLevel1");
+            this.components().append(this.text + 2, new FW.Component({ template: 'SubComponent2' }), ".utilityPanelLevel1");
+            this.components().append(this.text + 3, new FW.Component({ template: 'SubComponent3' }), ".utilityPanelLevel1");
         }
     });
+
+    // Control box subView
+
 
     var RootComponent = FW.Component.extend('RootComponent', {
             init: function (options) {
@@ -41,6 +44,7 @@
                 this.components().append('component1', new Component({ text: 'Component 1' }), '.hookLevel1');
                 this.components().append('component2', new Component({ text: 'Component 2' }), '.hookLevel1');
                 this.components().append('component3', new Component({ text: 'Component 3' }), '.hookLevel1');
+//                this.components().append('component4', new CustomComponent({ text: 'Component 4'}), '.hookLevel1');
             }
         }),
 
@@ -58,7 +62,6 @@
             }
         });
 
-    // Create a subview for popup product window
     createRootView();
     createUtilityView();
 }());
