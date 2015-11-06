@@ -9,6 +9,28 @@
         return rootView;
     }
 
+    function createUtilityView() {
+        var utilityView = new  CustomComponent({
+        });
+        utilityView.load();
+        utilityView.render();
+        $('body').append(utilityView._$el);
+    }
+
+    var CustomComponent = FW.Component.extend('customComponent', {
+        init: function (options) {
+            CustomComponent.parent.init.call(this, options);
+            this.text = options.text;
+            this.listenTo(this, 'load', this._onLoad);
+        },
+        // TODO: Validation in template engine
+        templateEngine: function(options) {
+        },
+        _onLoad: function() {
+//            this.components().append(this.text, this, "hookLevel");
+        }
+    });
+
     var RootComponent = FW.Component.extend('RootComponent', {
             init: function (options) {
                 options.template = '<div class="hookLevel1"></div>';
@@ -38,4 +60,5 @@
 
     // Create a subview for popup product window
     createRootView();
+    createUtilityView();
 }());
