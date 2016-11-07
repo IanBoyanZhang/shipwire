@@ -1,5 +1,9 @@
 # shipwire
 
+## Coding challenge
+[Optimizing shipping orders](https://www.shipwire.com/w/jobs/optimizing-shipping-orders/)
+[Coding Puzzles](https://www.shipwire.com/w/jobs/puzzles-welcome/)
+
 # App requirements 
 
 Product definition:
@@ -19,6 +23,10 @@ TODO: Make inheritence/mixin/composition map Mixin is equivalent to multiple inh
 
 TODO: Better Template Engine
 
+TODO: Use strict // Semicolon and Comma?
+
+TODO: Read class injection part of code
+
 ```javascript
 FW.Component could contain multiple components which are maintained through FW.ComponentList
 FW.Abstractmodel = FW.Object.extend
@@ -32,7 +40,7 @@ Create a `FW.Component`
 --> Give template
 
 Event Mechanism:
-
+  Synchronous event system
 Events:
 ```javascript
 'load',  // ? Add?

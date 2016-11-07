@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  
+
   function createProduct () {
     // Product from user input
     var product = new Product({
